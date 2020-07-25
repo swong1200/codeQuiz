@@ -49,7 +49,7 @@ function countDown () {
         timer.textContent = secondsLeft;
 
         if(secondsLeft === 0) {
-            clearInterval(secondsLeft);
+            clearInterval(timerInterval);
             gameOver();
         }
 
@@ -63,7 +63,10 @@ function gameOver() {
 }
 
 // On Click Event to Start Game
-document.querySelector("#a0").addEventListener("click", countDown(event));
+a0Div.addEventListener("click", countDown)
+    
+    
+
 
 //    Function to make questions appear
     // function newQuestion () {
