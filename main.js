@@ -26,6 +26,12 @@ var dataStructure = [
         var a3Div = document.querySelector("#a3");
         var newA3 = document.createElement("button");
 
+        question.textContent = "Welcome to the Coding Quiz";
+        questionDiv.appendChild(question);
+
+        newA0.textContent = "Start"
+        a0Div.appendChild(newA0)
+
     function newQuestion () {
       for (var i = 0; i < dataStructure.length; i++) {
         
@@ -45,4 +51,4 @@ var dataStructure = [
         a3Div.appendChild(newA3);
         }
     }
-newQuestion()
+
