@@ -1,6 +1,6 @@
 # codeQuiz
 
-Goal: to create a web application that generates a quiz that assesses the user's knowledge of coding.
+Goal: to create a web application that generates a quiz that tests the user's knowledge of coding.
 
 1.  When the user accesses the application, they are greeted with a start button.
 
@@ -11,6 +11,8 @@ Goal: to create a web application that generates a quiz that assesses the user's
     -Each button can be pressed.
     -The click will then prompt a new question.
     -There will be a scoreboard keeping track of correct answers.
+    -The questions and answers will all have seperate divs on the html and be created with javascript.
+    -Bootstrap containers will seperate all the content and will style it and make it responsive.
 
 4.  The application will assess here if the answer is right or wrong.
     -Upon the clicking of the button event, a correct or wrong alert will appear on the screen.
