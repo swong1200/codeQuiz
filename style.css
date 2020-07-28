@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(197, 98, 5);
+    font-family: fantasy;
+}
+.card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    margin-left: 50vw;
+    margin-top: 50vh;
+}
+.hide {
+    display: none;
+}

@@ -2,7 +2,7 @@
 
 Goal: to create a web application that generates a quiz that tests the user's knowledge of coding.
 
-1.  When the user accesses the application, they are greeted with a start button.
+1.  When the user accesses the application, they are greeted with a start button. 
 
 2.  When the user presses the start button, a timer starts counting down and the quiz begins.
 

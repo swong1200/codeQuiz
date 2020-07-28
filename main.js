@@ -1,3 +1,4 @@
+
 // Using an object to store the questions and answers
 var dataStructure = [
     {
@@ -9,87 +10,103 @@ var dataStructure = [
       q: "What do you call the type of value that determines if something is true or false?",
       a: ["Boolean", "Variable","String", "Argument"], 
       correctAnswer: "Boolean"
+    },
+    {
+      q: "What punctuation is used to surround a string?",
+      a: ["Parentheses", "Square Brackets", "Carrots", "Quotation Marks"],
+      correctAnswer: "Quotation Marks"
     }
   ]
 
-
-
+// Starting point for the questions
+var questionIndex = dataStructure[0]
 
 // Query Selectors grabbing divs and creating elements
+var score = document.querySelector("#score");
+var timer = document.querySelector("#time");
 var questionDiv = document.querySelector("#question");
-var question = document.createElement("h1");
-
 var a0Div = document.querySelector("#a0");
-var newA0 = document.createElement("button");
-
 var a1Div = document.querySelector("#a1");
-var newA1 = document.createElement("button");
-
 var a2Div = document.querySelector("#a2");
-var newA2 = document.createElement("button");
-
 var a3Div = document.querySelector("#a3");
-var newA3 = document.createElement("button");
+var startButton = document.querySelector("a4")
+
 
 // Start Screen
-question.textContent = "Welcome to the Coding Quiz";
-questionDiv.appendChild(question);
+questionDiv.textContent = "Welcome to the Coding Quiz";
+ 
+// Scoreboard 
 
-newA1.textContent = "Start";
-a1Div.appendChild(newA1)
-
-//    Function to make questions appear
-function newQuestion () {
-      
-  for (var i = 0; i < dataStructure.length; i++) {
-    
-    question.textContent = dataStructure[i].q;
-    questionDiv.appendChild(question);
-
-    newA0.textContent = dataStructure[i].a[0];
-    a0Div.appendChild(newA0);
-   
-    newA1.textContent = dataStructure[i].a[1];
-    a1Div.appendChild(newA1);
-   
-    newA2.textContent = dataStructure[i].a[2];
-    a2Div.appendChild(newA2);
-  
-    newA3.textContent = dataStructure[i].a[3];
-    a3Div.appendChild(newA3);
-    }
+function scoreKeeper () {
+  var scoreBoard = document.querySelector("#score")
+  var score = 0
+  scoreBoard = score
 }
 
 // Timer
-var timer = document.querySelector("#time");
 var secondsLeft = 60;
-timer.setAttribute("class", "float-right")
-
-
-function countDown () {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timer.textContent = secondsLeft;
-        newQuestion
-
-        if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-            gameOver();
-        }
-
-    }, 1000);
-}
-
-function gameOver() {
-    question.textContent = "Game Over";
-    a0Div.removeChild(newA0)
-    questionDiv.appendChild(question);
-}
 
 // On Click Event to Start Game
-a0Div.addEventListener("click", countDown)
-    
-    
+startButton.addEventListener("click", startGame)
+
+// Function to start game
+function startGame() {
+  countDown();
+
+  startButton.classList.add("hide");
+  a0Div.classList.remove("hide");
+  a1Div.classList.remove("hide");
+  a2Div.classList.remove("hide");
+  a3Div.classList.remove("hide");
+
+  newQuestion();
+}
+
+// Timer function
+function countDown () {
+  var timerInterval = setInterval(function() {
+      timer.textContent = "Time Left: " + secondsLeft;
+      secondsLeft--;
+      newQuestion();
+      if(secondsLeft === 0 || dataStructure.length === questionIndex) {
+          clearInterval(timerInterval);
+          gameOver();
+      }
+  }, 1000);
+}
+
+a0Div.addEventListener("click", checkAnswer);
+a1Div.addEventListener("click", checkAnswer);
+a2Div.addEventListener("click", checkAnswer);
+a3Div.addEventListener("click", checkAnswer);
+
+//    Function to make questions appear
+function newQuestion () {
+  questionDiv.textContent = questionIndex.q;
+  a0Div.textContent = questionIndex.a[0];
+  a1Div.textContent = questionIndex.a[1];
+  a2Div.textContent = questionIndex.a[2];
+  a3Div.textContent = questionIndex.a[3];
+  }
 
 
+ function checkAnswer () {
 
+      console.log(clicked_id);
+    //   var answer = newQuestion[questionIndex].correctAnswer;
+
+    //   if (answer === {
+    //     score++;
+    //     questionIndex++;
+    //     newQuestion();
+    //   } else {
+    //     secondsLeft = secondsLeft - 5;
+    //     questionIndex++;
+    //     newQuestion();
+    //   }
+    }
+
+// Function for Game Over screen
+function gameOver() {
+    question.textContent = "Game Over";
+}
