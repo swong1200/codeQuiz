@@ -1,3 +1,13 @@
+// Query Selectors grabbing divs and creating elements
+var score = document.querySelector("#score");
+var timer = document.querySelector("#time");
+var questionDiv = document.querySelector("#question");
+var a0Div = document.querySelector("#a0");
+var a1Div = document.querySelector("#a1");
+var a2Div = document.querySelector("#a2");
+var a3Div = document.querySelector("#a3");
+var startButton = document.querySelector("#a4");
+var form = document.querySelector("#form")
 
 // Using an object to store the questions and answers
 var dataStructure = [
@@ -16,49 +26,42 @@ var dataStructure = [
       a: ["Parentheses", "Square Brackets", "Carrots", "Quotation Marks"],
       correctAnswer: "Quotation Marks"
     }
-  ]
+  ];
 
 // Starting point for the questions
-var questionIndex = dataStructure[0]
+var questionIndex = dataStructure[0];
 
-// Query Selectors grabbing divs and creating elements
-var score = document.querySelector("#score");
-var timer = document.querySelector("#time");
-var questionDiv = document.querySelector("#question");
-var a0Div = document.querySelector("#a0");
-var a1Div = document.querySelector("#a1");
-var a2Div = document.querySelector("#a2");
-var a3Div = document.querySelector("#a3");
-var startButton = document.querySelector("a4")
+// Final question
+var questionFinal = dataStructure.length;
 
-
-// Start Screen
-questionDiv.textContent = "Welcome to the Coding Quiz";
- 
 // Scoreboard 
-
-function scoreKeeper () {
-  var scoreBoard = document.querySelector("#score")
-  var score = 0
-  scoreBoard = score
-}
+var score = 0;
 
 // Timer
 var secondsLeft = 60;
 
+// Start Screen
+questionDiv.textContent = "Welcome to the Coding Quiz";
+ 
+// Score Function
+function scoreKeeper () {
+  var scoreBoard = document.querySelector("#score");
+  scoreBoard = document.createElement("p");
+  scoreBoard.textContent(score);
+  scoreBoard.appendChild(score);
+}
+
 // On Click Event to Start Game
-startButton.addEventListener("click", startGame)
+startButton.addEventListener("click", startGame);
 
 // Function to start game
 function startGame() {
   countDown();
-
   startButton.classList.add("hide");
   a0Div.classList.remove("hide");
   a1Div.classList.remove("hide");
   a2Div.classList.remove("hide");
   a3Div.classList.remove("hide");
-
   newQuestion();
 }
 
@@ -75,6 +78,7 @@ function countDown () {
   }, 1000);
 }
 
+// Event listeners for answer buttons
 a0Div.addEventListener("click", checkAnswer);
 a1Div.addEventListener("click", checkAnswer);
 a2Div.addEventListener("click", checkAnswer);
@@ -90,23 +94,27 @@ function newQuestion () {
   }
 
 
- function checkAnswer () {
-
-      console.log(clicked_id);
-    //   var answer = newQuestion[questionIndex].correctAnswer;
-
-    //   if (answer === {
-    //     score++;
-    //     questionIndex++;
-    //     newQuestion();
-    //   } else {
-    //     secondsLeft = secondsLeft - 5;
-    //     questionIndex++;
-    //     newQuestion();
-    //   }
+function checkAnswer (e) {
+        var selectedButton = e.target;
+        if (selectedButton === questionIndex.correctAnswer) {
+          alert("Correct!");
+          score++;
+          questionIndex[+1];
+          newQuestion();
+        } else {
+          alert("Wrong!");
+          secondsLeft = secondsLeft - 5;
+          questionIndex[+1];
+          newQuestion();
+        }
     }
 
 // Function for Game Over screen
 function gameOver() {
-    question.textContent = "Game Over";
+    question.textContent = "Please enter your initials to record your score";
+    a0Div.classList.add("hide");
+    a1Div.classList.add("hide");
+    a2Div.classList.add("hide");
+    a3Div.classList.add("hide");
+    form.classList.remove("hide")
 }

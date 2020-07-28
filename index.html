@@ -9,18 +9,25 @@
 </head>
 <body>
     <header class="container">
-        <div class = "container col-md-6 float-left" id="score"></div>
-        <div class = "container col-md-6 float-right" id="time"></div>
+        <div class = "container col-md-6 float-left" id="score">Score</div>
+        <div class = "container col-md-6 float-right" id="time">Time</div>
     </header>
     <div class="card row" style="width: 18rem;">
-        <div class="card-body col-md-6">
+        <div class="card-body col-lg-8">
           <p id="question" class="card-text"></p>
-          <button id="a0" class="btn btn-primary btn-lg hide" type="button" onClick="reply_click(this.id)"></button>
-          <button id="a1" class="btn btn-primary btn-lg hide" type="button" onClick="reply_click(this.id)"></button>
-          <button id="a2" class="btn btn-primary btn-lg hide" type="button" onClick="reply_click(this.id)"></button>
-          <button id="a3" class="btn btn-primary btn-lg hide" type="button" onClick="reply_click(this.id)"></button>
+          <button id="a0" class="btn btn-primary btn-lg hide" type="button"></button>
+          <button id="a1" class="btn btn-primary btn-lg hide" type="button"></button>
+          <button id="a2" class="btn btn-primary btn-lg hide" type="button"></button>
+          <button id="a3" class="btn btn-primary btn-lg hide" type="button"></button>
           <button id="a4" class="btn btn-primary btn-lg" type="button">Start</button>
         </div>
+        <form id="form" class="form-inline hide">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" class="sr-only">Initials</label>
+              <input type="password" class="form-control" id="inputPassword2" placeholder="Initials">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </form>
     </div>
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
