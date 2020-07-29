@@ -9,11 +9,13 @@
 </head>
 <body>
     <header class="container">
-        <div class = "container col-md-6 float-left" id="score">Score</div>
-        <div class = "container col-md-6 float-right" id="time">Time</div>
+        <div class="row">
+            <div class = "container col-md-6 float-left">Score: <span id="score"></span></div>
+            <div class = "container col-md-6 float-right" id="time">Time Left:</div>
+        </div>
     </header>
-    <div class="card row" style="width: 18rem;">
-        <div class="card-body col-lg-8">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
           <p id="question" class="card-text"></p>
           <button id="a0" class="btn btn-primary btn-lg hide" type="button"></button>
           <button id="a1" class="btn btn-primary btn-lg hide" type="button"></button>
@@ -26,8 +28,8 @@
               <label for="inputPassword2" class="sr-only">Initials</label>
               <input class="form-control" id="inputPassword2" placeholder="Initials">
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-          </form>
+            <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
+        </form>
     </div>
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
