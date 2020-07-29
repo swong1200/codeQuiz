@@ -7,9 +7,10 @@ var a1Div = document.querySelector("#a1");
 var a2Div = document.querySelector("#a2");
 var a3Div = document.querySelector("#a3");
 var startButton = document.querySelector("#a4");
-var form = document.querySelector("#form")
-var submit = document.querySelector("#submit")
-var inputPassword2 = document.querySelector("#inputPassword2")
+var form = document.querySelector("#form");
+var submit = document.querySelector("#submit");
+var inputPassword2 = document.querySelector("#inputPassword2");
+var list = document.querySelector("#list");
 
 // Using an object to store the questions and answers
 var dataStructure = [
@@ -104,7 +105,7 @@ function countDown () {
   var timerInterval = setInterval(function() {
       timer.textContent = "Time Left: " + secondsLeft;
       secondsLeft--;
-      if(secondsLeft <= 0 || dataStructure[index] == questionFinal) {
+      if(secondsLeft <= 0 || index == questionFinal) {
         clearInterval(timerInterval);
         gameOver();     
       }
@@ -176,7 +177,7 @@ function submitForm (event) {
     }
   ]
   
-  var savedScore = localStorage.setItem("score", finalScore)
+  var savedScore = localStorage.setItem("score", score)
   
   console.log(savedScore)  
 

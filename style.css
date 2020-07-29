@@ -2,7 +2,7 @@ body {
     background-color: rgb(197, 98, 5);
     font-family: fantasy;
 }
-.card {
+#card1 {
     margin-top: 15%;
     margin-left: 20%;
     background-color: white;
@@ -13,4 +13,8 @@ body {
 }
 .btn {
     margin: 10px;
+}
+#card2 {
+    margin-top: 20%;
+    margin-left: 20%;
 }
