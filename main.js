@@ -11,6 +11,7 @@ var form = document.querySelector("#form");
 var submit = document.querySelector("#submit");
 var inputPassword2 = document.querySelector("#inputPassword2");
 var list = document.querySelector("#list");
+var card2 = document.querySelector("#card2")
 
 // Using an object to store the questions and answers
 var dataStructure = [
@@ -93,6 +94,7 @@ startButton.addEventListener("click", startGame);
 function startGame() {
   countDown();
   startButton.classList.add("hide");
+  card2.classList.add("hide");
   a0Div.classList.remove("hide");
   a1Div.classList.remove("hide");
   a2Div.classList.remove("hide");
@@ -170,15 +172,28 @@ function submitForm (event) {
   event.preventDefault();
   var initials = inputPassword2.value;
   var score = scoreBoard;
-  var scoreList = [
+  var scoreList = 
     {
       initials: initials,
       score: score
     }
-  ]
+  var storage = []
+  var stringifiedScore = JSON.stringify(scoreList);
+  localStorage.setItem("score", stringifiedScore);
+  var storedObject = localStorage.getItem("score");
+  var unparsedObject = JSON.parse(storedObject);
+  storage.push(unparsedObject);
+    
+  for (var i = 0; i < storage.length; i++) {
+    var newName = document.createElement("p")
+    newName.textContent(storage[i])
+    console.log(storage[i])
+    list.appendChild(newName)
+    
+  }
+    
+  }
   
-  var savedScore = localStorage.setItem("score", score)
   
-  console.log(savedScore)  
 
-}
+
