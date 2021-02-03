@@ -11,6 +11,7 @@ var form = document.querySelector("#form");
 var submit = document.querySelector("#submit");
 var inputPassword2 = document.querySelector("#inputPassword2");
 var list = document.querySelector("#list");
+var card1 = document.querySelector("#card1");
 var card2 = document.querySelector("#card2");
 
 // Using an array to store the questions and answers
@@ -67,7 +68,7 @@ var dataStructure = [
     correctAnswer: "<head>",
   },
   {
-    q: "Which symbol is used to refer to an ID?",
+    q: "In CSS, which symbol is used to refer to an ID?",
     a: ["+", "#", ".", "$"],
     correctAnswer: "#",
   },
@@ -186,6 +187,9 @@ function submitForm(event) {
   var unparsedObject = JSON.parse(storedObject);
   storage.push(unparsedObject);
   console.log(storage);
+
+  card1.classList.add("hide");
+  card2.classList.remove("hide");
 
   // for (var i = 0; i < storage.length; i++) {
   //   var newName = document.createElement("p")
