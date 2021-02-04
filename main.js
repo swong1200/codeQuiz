@@ -191,11 +191,10 @@ function submitForm(event) {
   card1.classList.add("hide");
   card2.classList.remove("hide");
 
-  // for (var i = 0; i < storage.length; i++) {
-  //   var newName = document.createElement("p")
-  //   newName.textContent(storage[i])
-  //   console.log(storage[i])
-  //   list.appendChild(newName)
-
-  // }
+  for (var i = 0; i < storage.length; i++) {
+    var newName = document.createElement("p");
+    newName.textContent = storage[i].initials + " " + storage[i].score;
+    console.log(storage[i]);
+    list.appendChild(newName);
+  }
 }
