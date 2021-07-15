@@ -23,7 +23,9 @@
     </header>
     <div class="card" style="width: 18rem" id="card1">
       <div class="card-body">
+        <!-- Question appears here -->
         <p id="question" class="card-text"></p>
+        <!-- Each button holds an answer -->
         <button
           id="a0"
           class="btn btn-primary btn-lg hide"
@@ -44,10 +46,15 @@
           class="btn btn-primary btn-lg hide"
           type="button"
         ></button>
-        <button id="a4" class="btn btn-primary btn-lg" type="button">
+        <!-- This button has double duty as the start button also -->
+        <button 
+          id="a4" 
+          class="btn btn-primary btn-lg" 
+          type="button">
           Start
         </button>
       </div>
+      <!-- This form is hidden until the quiz is over. -->
       <form id="form" class="form-inline hide">
         <div class="form-group mx-sm-3 mb-2">
           <label for="inputPassword2" class="sr-only">Initials</label>

@@ -17,7 +17,7 @@ var card2 = document.querySelector("#card2");
 // Using an array to store the questions and answers
 var dataStructure = [
   {
-    q: "Inside which HTML element do we put the Javascript?",
+    q: "Inside which HTML element would you add Javascript to the page?",
     a: ["<javascripts>", "<scripting>", "<js>", "<script>"],
     correctAnswer: "<script>",
   },
@@ -34,7 +34,7 @@ var dataStructure = [
   },
   {
     q: "Which HTML element is used to create a paragraph?",
-    a: ["a", "h1", "p", "body"],
+    a: ["<a>", "<h1>", "<p>", "<body>"],
     correctAnswer: "p",
   },
   {
@@ -43,13 +43,13 @@ var dataStructure = [
     correctAnswer: "Square Brackets",
   },
   {
-    q: "How do you refer to class in CSS?",
+    q: "How do you refer to a class in CSS?",
     a: [".class", "<class>", "class;", "(class)"],
     correctAnswer: ".class",
   },
   {
     q: "Which is a CSS framework?",
-    a: ["React", "Node", "JQuery", "Bootstrap"],
+    a: ["React", "Node", "jQuery", "Bootstrap"],
     correctAnswer: "Bootstrap",
   },
   {
