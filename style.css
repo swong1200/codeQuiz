@@ -1,18 +1,21 @@
 body {
-    background-color: rgb(197, 98, 5);
+    background-color: #645853;
     font-family: fantasy;
 }
 #card1 {
     margin-top: 5%;
     margin-left: 20%;
-    background-color: white;
+    background-color: #A8BA9A;
+    /* #A8BA9A */
     box-shadow: 0 0 10px 2px;
+}
+.btn {
+    background-color: #F4442E;
+    border: none;
+    margin: 10px;
 }
 .hide {
     display: none;
-}
-.btn {
-    margin: 10px;
 }
 #card2 {
     margin-top: 5%;
