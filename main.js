@@ -186,9 +186,8 @@ function submitForm(event) {
       initials: initials,
       score: score,
     };
-    var newScore = parsedStorage.topScores;
-    newScore.push(scoreList);
-    var stringifiedScores = JSON.stringify(newScore);
+    parsedStorage.push(scoreList);
+    var stringifiedScores = JSON.stringify(parsedStorage);
     console.log(stringifiedScores)
     localStorage.setItem('scores', stringifiedScores);
     } else {
@@ -200,9 +199,7 @@ function submitForm(event) {
       score: score,
     };
     storage.push(scoreList);
-    var newObject = {};
-    newObject['topScores'] = storage;
-    var stringifiedScores = JSON.stringify(newObject);
+    var stringifiedScores = JSON.stringify(storage);
     localStorage.setItem('scores', stringifiedScores);
   }
 
@@ -215,18 +212,13 @@ function submitForm(event) {
   card1.classList.add("hide");
   card2.classList.remove("hide");
 
-    if (parsedScores.topScores) {
-        for (const score of parsedScores.topScores) {
-            var newName = document.createElement("li");
-            newName.textContent = score.initials + " " + score.score;
-            list.appendChild(newName);
-        }
-    } else {
-        for (const score of parsedScores) {
-            var newName = document.createElement("li");
-            newName.textContent = score.initials + " " + score.score;
-            list.appendChild(newName);
-        }
+  var sortedScores = parsedScores.sort((a, b)=> b.score - a.score);
+    for (const score of sortedScores) {
+        var newName = document.createElement("li");
+        newName.textContent = score.initials + " " + score.score;
+        list.appendChild(newName);
     }
+        
+    
    
 }
