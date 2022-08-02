@@ -39,7 +39,7 @@ var dataStructure = [
   {
     q: "Which HTML element is used to create a paragraph?",
     a: ["<a>", "<h1>", "<p>", "<body>"],
-    correctAnswer: "p",
+    correctAnswer: "<p>",
   },
   {
     q: "Which are the correct punctuation for an array?",
@@ -140,7 +140,6 @@ function newQuestion() {
   a2Div.setAttribute("data-answer", questionIndex.a[2]);
   a3Div.textContent = questionIndex.a[3];
   a3Div.setAttribute("data-answer", questionIndex.a[3]);
-  console.log(questionIndex.a[1]);
   // Event listeners for answer buttons
   a0Div.addEventListener("click", checkAnswer);
   a1Div.addEventListener("click", checkAnswer);
@@ -177,21 +176,42 @@ function gameOver() {
 
 function submitForm(event) {
   event.preventDefault();
-
-  var localStorageScores = localStorage.getItem('score');
+// Acquire data from local storage, if any
+debugger
+  var localStorageScores = localStorage.getItem('scores');
   if (localStorageScores) {
     var parsedStorage = JSON.parse(localStorageScores);
-    console.log(parsedStorage);
+    var initials = inputPassword2.value;
+    var score = scoreBoard;
+    var scoreList = {
+      initials: initials,
+      score: score,
+    };
+    var newScore = parsedStorage.topScores;
+    newScore.push(scoreList);
+    var stringifiedScores = JSON.stringify(newScore);
+    console.log(stringifiedScores)
+    localStorage.setItem('scores', stringifiedScores);
   } else {
-    console.log('Not here')
+    var storage = [];
+    var initials = inputPassword2.value;
+    var score = scoreBoard;
+    var scoreList = {
+      initials: initials,
+      score: score,
+    };
+    storage.push(scoreList);
+    var newObject = {};
+    newObject['topScores'] = storage;
+    var stringifiedScores = JSON.stringify(newObject);
+    localStorage.setItem('scores', stringifiedScores);
   }
+//   Acquire local storage again to populate the top scores
+  var getScores = localStorage.getItem('scores');
+  var parsedScores = JSON.parse(getScores);
+  console.log(parsedScores);
 
-  var initials = inputPassword2.value;
-  var score = scoreBoard;
-  var scoreList = {
-    initials: initials,
-    score: score,
-  };
+  
 
   
 //   var storage = [];
