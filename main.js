@@ -191,7 +191,7 @@ function submitForm(event) {
     var stringifiedScores = JSON.stringify(newScore);
     console.log(stringifiedScores)
     localStorage.setItem('scores', stringifiedScores);
-  } else {
+    } else {
     var storage = [];
     var initials = inputPassword2.value;
     var score = scoreBoard;
@@ -205,7 +205,7 @@ function submitForm(event) {
     var stringifiedScores = JSON.stringify(newObject);
     localStorage.setItem('scores', stringifiedScores);
   }
-  
+
 //   Acquire local storage again to populate the top scores
   var getScores = localStorage.getItem('scores');
   var parsedScores = JSON.parse(getScores);
@@ -217,21 +217,16 @@ function submitForm(event) {
 
     if (parsedScores.topScores) {
         for (const score of parsedScores.topScores) {
-            var newName = document.createElement("p");
+            var newName = document.createElement("li");
             newName.textContent = score.initials + " " + score.score;
             list.appendChild(newName);
         }
     } else {
         for (const score of parsedScores) {
-            var newName = document.createElement("p");
+            var newName = document.createElement("li");
             newName.textContent = score.initials + " " + score.score;
             list.appendChild(newName);
         }
-}
-  
-
-
-  
-
-  
+    }
+   
 }
