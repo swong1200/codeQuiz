@@ -177,7 +177,6 @@ function gameOver() {
 function submitForm(event) {
   event.preventDefault();
 // Acquire data from local storage, if any
-debugger
   var localStorageScores = localStorage.getItem('scores');
   if (localStorageScores) {
     var parsedStorage = JSON.parse(localStorageScores);
@@ -206,29 +205,33 @@ debugger
     var stringifiedScores = JSON.stringify(newObject);
     localStorage.setItem('scores', stringifiedScores);
   }
+  
 //   Acquire local storage again to populate the top scores
   var getScores = localStorage.getItem('scores');
   var parsedScores = JSON.parse(getScores);
   console.log(parsedScores);
 
+// Remove the game card and display the topscores card
+  card1.classList.add("hide");
+  card2.classList.remove("hide");
+
+    if (parsedScores.topScores) {
+        for (const score of parsedScores.topScores) {
+            var newName = document.createElement("p");
+            newName.textContent = score.initials + " " + score.score;
+            list.appendChild(newName);
+        }
+    } else {
+        for (const score of parsedScores) {
+            var newName = document.createElement("p");
+            newName.textContent = score.initials + " " + score.score;
+            list.appendChild(newName);
+        }
+}
+  
+
+
   
 
   
-//   var storage = [];
-//   var stringifiedScore = JSON.stringify(scoreList);
-//   localStorage.setItem("score", stringifiedScore);
-//   var storedObject = localStorage.getItem("score");
-//   var unparsedObject = JSON.parse(storedObject);
-//   storage.push(unparsedObject);
-//   console.log(storage);
-
-//   card1.classList.add("hide");
-//   card2.classList.remove("hide");
-
-//   for (var i = 0; i < storage.length; i++) {
-//     var newName = document.createElement("p");
-//     newName.textContent = storage[i].initials + " " + storage[i].score;
-//     console.log(storage[i]);
-//     list.appendChild(newName);
-//   }
 }
