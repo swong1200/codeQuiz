@@ -1,16 +1,20 @@
 // Query Selectors grabbing divs and creating elements
 var scores = document.querySelector("#score");
 var timer = document.querySelector("#time");
+
 var questionDiv = document.querySelector("#question");
 var a0Div = document.querySelector("#a0");
 var a1Div = document.querySelector("#a1");
 var a2Div = document.querySelector("#a2");
 var a3Div = document.querySelector("#a3");
 var startButton = document.querySelector("#a4");
+
 var form = document.querySelector("#form");
 var submit = document.querySelector("#submit");
 var inputPassword2 = document.querySelector("#inputPassword2");
+
 var list = document.querySelector("#list");
+
 var card1 = document.querySelector("#card1");
 var card2 = document.querySelector("#card2");
 
@@ -148,7 +152,6 @@ function newQuestion() {
 function checkAnswer() {
   var answer = dataStructure[index].correctAnswer;
   index++;
-  console.log(answer);
   var correctChoice = event.target.getAttribute("data-answer");
   if (answer === correctChoice) {
     scoreBoard++;
@@ -174,27 +177,38 @@ function gameOver() {
 
 function submitForm(event) {
   event.preventDefault();
+
+  var localStorageScores = localStorage.getItem('score');
+  if (localStorageScores) {
+    var parsedStorage = JSON.parse(localStorageScores);
+    console.log(parsedStorage);
+  } else {
+    console.log('Not here')
+  }
+
   var initials = inputPassword2.value;
   var score = scoreBoard;
   var scoreList = {
     initials: initials,
     score: score,
   };
-  var storage = [];
-  var stringifiedScore = JSON.stringify(scoreList);
-  localStorage.setItem("score", stringifiedScore);
-  var storedObject = localStorage.getItem("score");
-  var unparsedObject = JSON.parse(storedObject);
-  storage.push(unparsedObject);
-  console.log(storage);
 
-  card1.classList.add("hide");
-  card2.classList.remove("hide");
+  
+//   var storage = [];
+//   var stringifiedScore = JSON.stringify(scoreList);
+//   localStorage.setItem("score", stringifiedScore);
+//   var storedObject = localStorage.getItem("score");
+//   var unparsedObject = JSON.parse(storedObject);
+//   storage.push(unparsedObject);
+//   console.log(storage);
 
-  for (var i = 0; i < storage.length; i++) {
-    var newName = document.createElement("p");
-    newName.textContent = storage[i].initials + " " + storage[i].score;
-    console.log(storage[i]);
-    list.appendChild(newName);
-  }
+//   card1.classList.add("hide");
+//   card2.classList.remove("hide");
+
+//   for (var i = 0; i < storage.length; i++) {
+//     var newName = document.createElement("p");
+//     newName.textContent = storage[i].initials + " " + storage[i].score;
+//     console.log(storage[i]);
+//     list.appendChild(newName);
+//   }
 }
