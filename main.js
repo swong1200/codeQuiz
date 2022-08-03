@@ -218,7 +218,9 @@ function submitForm(event) {
         newName.textContent = sortedScores[i].initials + "  " + sortedScores[i].score;
         list.appendChild(newName);
     }
-        
-    
-   
+}
+
+function clearScores() {
+    localStorage.removeItem("scores");
+    list.classList.add("hide");
 }

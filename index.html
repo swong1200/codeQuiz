@@ -75,8 +75,12 @@
       <div class="card-body">
         <h5 class="card-title">High Scores</h5>
         <ol class="card-text" id="list"></ol>
-        <button class="btn btn-primary" id="clear">Clear</button>
-        <button class="btn btn-primary" id="return">Return to Game</button>
+        <button class="btn btn-primary" id="clear" onclick="clearScores()">Clear</button>
+        <button class="btn btn-primary" id="return">
+            <a href="javascript:window.location.href=window.location.href">
+                Return to Game
+            </a>
+        </button>
       </div>
     </div>
 
