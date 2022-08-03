@@ -21,3 +21,6 @@ header {
 .hide {
     display: none;
 }
+#return a {
+    color: white;
+}
