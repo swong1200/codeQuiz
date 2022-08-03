@@ -213,9 +213,9 @@ function submitForm(event) {
   card2.classList.remove("hide");
 
   var sortedScores = parsedScores.sort((a, b)=> b.score - a.score);
-    for (const score of sortedScores) {
+    for (let i = 0; i < 10; i++) {
         var newName = document.createElement("li");
-        newName.textContent = score.initials + " " + score.score;
+        newName.textContent = sortedScores[i].initials + "  " + sortedScores[i].score;
         list.appendChild(newName);
     }
         
